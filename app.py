@@ -67,9 +67,9 @@ def make_prediction(img, feature_extractor, model):
 
 
 def main():
-    option = st.selectbox("META DEtection TRansformer (DETR) Model", ("facebook/detr-resnet-50", "" ))
+    option = st.selectbox("META (Facebook) DEtection TRansformer (DETR) Model", ("facebook/detr-resnet-50", "" ))
     feature_extractor, model = get_hf_components(option)
-    url = st.text_input("URL to some image", "http://images.cocodataset.org/val2017/000000039769.jpg")
+    url = st.text_input("Insert image URL", "http://images.cocodataset.org/val2017/000000039769.jpg")
     img = get_img_from_url(url)
     processed_outputs = make_prediction(img, feature_extractor, model)
     threshold = st.slider("Prediction Threshold", 0.0, 1.0, 0.7)
